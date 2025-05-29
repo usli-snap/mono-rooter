@@ -1,4 +1,4 @@
-# Temp
+# Temp will update this with full instructions soon
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
 
