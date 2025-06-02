@@ -1,5 +1,5 @@
-export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'link';
-export type ButtonSize    = 'sm' | 'md' | 'lg';
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'success' | 'error' | 'outline' | 'link';
+export type ButtonSize    = 'xs' |'sm' | 'md' | 'lg';
 
 export interface ButtonParams {
   variant?: ButtonVariant;
@@ -7,7 +7,7 @@ export interface ButtonParams {
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
   iconClass?: string;
-  iconPosition?: 'before' | 'after';
+  iconPosition?: 'before' | 'after' | 'beforeAfter';
   extraClass?: string;
   ariaLabel?: string;
 }

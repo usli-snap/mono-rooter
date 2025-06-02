@@ -13,12 +13,4 @@ export class AppComponent {
   onClick(event: Event): void {
     console.log('Button clicked:', event);
   }
-
-
-  save() {
-    console.log('Save clicked');
-  }
-  delete() {
-    console.log('Delete clicked');
-  }
 }

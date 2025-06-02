@@ -8,16 +8,18 @@ button.ui-btn {
   border:1px solid transparent;
   border-radius:var(--_radius);
   padding:var(--_pad-y) var(--_pad-x);
-  font:inherit;
-  cursor:pointer;
+  font:inherit; cursor:pointer;
   transition:background-color .15s, color .15s, border-color .15s;
+  border: 1px solid transparent;
+
   &:disabled { opacity:.65; cursor:not-allowed; }
 }
 /* variants */
-button.ui-btn--primary   { background:#0d6efd; color:#fff; }
-button.ui-btn--secondary { background:#6c757d; color:#fff; }
-button.ui-btn--outline   { background:transparent; color:#0d6efd; border-color:#0d6efd; }
-button.ui-btn--link      { background:transparent; color:#0d6efd; border:none; padding:0; }
+button.ui-btn--primary   { background:#00338E; border:1px solid #00338E; color:#fff; }
+button.ui-btn--secondary { background:#fff; border:1px solid #00338E; color:#00338E; }
+button.ui-btn--success   { background:#14661A; border:1px solid #14661A; color:#fff; }
+button.ui-btn--error     { background:#B10505; border:1px solid #B10505; color:#fff; }
+button.ui-btn--link      { background:transparent; color:#00338E; border:none; padding:0; }
 /* sizes */
 button.ui-btn--sm { --_pad-y:.25rem; --_pad-x:.5rem;  font-size:.875rem; }
 button.ui-btn--lg { --_pad-y:.5rem;  --_pad-x:1rem;   font-size:1.125rem; }

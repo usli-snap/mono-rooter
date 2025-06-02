@@ -230,22 +230,47 @@
       <div class="d-flex flex-wrap gap-2">
 
 <!-- attribute style -->
-<button uiButton variant="primary" (clicked)="save()">
-  <i class="fa fa-save" aria-hidden="true"></i>
-  Save
+<button uiButton variant="primary" (clicked)="onClick($event)">
+  <i class="bi bi-gear" aria-hidden="true"></i>
+  primary
+  <i class="bi bi-gear" aria-hidden="true"></i>
 </button>
+
+<button uiButton variant="secondary" (clicked)="onClick($event)">
+  <i class="bi bi-gear" aria-hidden="true"></i>
+  secondary
+  <i class="bi bi-gear" aria-hidden="true"></i>
+</button>
+<button uiButton variant="success" (clicked)="onClick($event)">
+  <i class="bi bi-gear" aria-hidden="true"></i>
+  success
+  <i class="bi bi-gear" aria-hidden="true"></i>
+</button>
+<button uiButton variant="error" (clicked)="onClick($event)">
+  <i class="bi bi-gear" aria-hidden="true"></i>
+  error
+  <i class="bi bi-gear" aria-hidden="true"></i>
+</button>
+<button uiButton variant="link" (clicked)="onClick($event)">
+  <i class="bi bi-gear" aria-hidden="true"></i>
+  link
+  <i class="bi bi-gear" aria-hidden="true"></i>
+</button>
+
+
 
 <!-- object style -->
 <button uiButton
         [params]="{
           variant:'outline',
-          size:'lg',
-          iconClass:'fa fa-trash',
+          size:'sm',
+          iconClass:'bi bi-gear',
           ariaLabel:'Delete item'
         }"
-        (clicked)="delete()">
+        (clicked)="onClick($event)">
   <i class="bi bi-gear" aria-hidden="true"></i>
   Delete
+  <i class="bi bi-gear" aria-hidden="true"></i>
 </button>
 
 
