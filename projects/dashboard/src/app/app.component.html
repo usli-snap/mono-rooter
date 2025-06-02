@@ -229,7 +229,24 @@
       <p>Congratulations! Your app is running. 🎉</p>
       <div class="d-flex flex-wrap gap-2">
 
-        <button usliBtn [type]="'button'" [size]="'lg'" [color]="'primary'" btnLabel="Chris Button"></button>
+<!-- attribute style -->
+<button uiButton variant="primary" (clicked)="save()">
+  <i class="fa fa-save" aria-hidden="true"></i>
+  Save
+</button>
+
+<!-- object style -->
+<button uiButton
+        [params]="{
+          variant:'outline',
+          size:'lg',
+          iconClass:'fa fa-trash',
+          ariaLabel:'Delete item'
+        }"
+        (clicked)="delete()">
+  <i class="bi bi-gear" aria-hidden="true"></i>
+  Delete
+</button>
 
 
 

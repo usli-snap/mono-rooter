@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ButtonComponent } from '@components/lib';
+import { UiButtonDirective } from '@components/lib';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ButtonComponent],
+  imports: [RouterOutlet, UiButtonDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -12,5 +12,13 @@ export class AppComponent {
 
   onClick(event: Event): void {
     console.log('Button clicked:', event);
+  }
+
+
+  save() {
+    console.log('Save clicked');
+  }
+  delete() {
+    console.log('Delete clicked');
   }
 }
