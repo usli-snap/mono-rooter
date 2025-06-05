@@ -1,1 +1,35 @@
-<p>Hola! Button</p>
+<button
+  [attr.aria-label]="'Click here to ' + label"
+  [disabled]="disabled || loading"
+  [type]="type"
+  [class]="styles"
+  (click)="handleClick()">
+  @if (loading) {
+    <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+    {{ loadingText || 'Loading' }}
+  } @else {
+    @if (icon && iconPosition === 'start' || icon && iconPosition === 'both') {
+      <i [class]="icon" class="me-2" aria-hidden="true"></i>
+    }
+    {{label}}
+    @if (icon && iconPosition === 'end' || icon && iconPosition === 'both') {
+      <i [class]="icon" class="ms-2" aria-hidden="true"></i>
+    }
+  }
+</button>
+
+<!--
+<ui-button
+  [params]="{
+    label: 'Trash',
+    variant: 'error',
+    size: 'lg',
+    icon: 'bi bi-trash',
+    iconPosition: 'start',
+    loading: isSubmitting,
+    loadingText: 'Deleting...'
+  }"
+  (click)="deleteFn()">
+</ui-button>
+-->
+
