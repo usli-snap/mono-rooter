@@ -18,7 +18,7 @@ export class DataService {
     {
       text: "Settings",
       "icon": "fas fa-cog",
-      // action: () => console.log('Settings clicked'),
+      action: () => console.log('Settings clicked'),
       subItems: [
         { "label": "Profile", "icon": "fas fa-user", "link": "/profile" },
         { "label": "Security", "icon": "fas fa-shield-alt", "link": "/security" }
