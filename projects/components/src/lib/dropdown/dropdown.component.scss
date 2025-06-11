@@ -1,0 +1,48 @@
+.dropdown-tab {
+    padding: 10px;
+  
+    .nav-tabs {
+      border-bottom: none;
+    }
+  
+    .nav-link {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  
+    .tab-content {
+      margin-top: 10px;
+    }
+  }
+  
+  .dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+}
+
+.dropdown-menu.show {
+    display: block; /* Show when dropdown is active */
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Add more styles for submenus and icons as needed */

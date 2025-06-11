@@ -1,0 +1,31 @@
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    padding: 1rem;
+    background: #f8f9fa;
+    font-weight: bold;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .card-footer {
+    padding: 1rem;
+    background: #f8f9fa;
+    text-align: right;
+  }
+  
+  /* Bootstrap-style Divider */
+  .divider {
+    height: 1px;
+    background: #dee2e6;
+    margin: 0;
+  }
+  

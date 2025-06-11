@@ -1,0 +1,24 @@
+<div class="card">
+    <!-- Card Header -->
+    <div *ngIf="title || subtitle" class="card-header">
+      <h5 *ngIf="title">{{ title }}</h5>
+      <p *ngIf="subtitle" class="text-muted">{{ subtitle }}</p>
+    </div>
+  
+    <!-- Divider using Bootstrap -->
+    <div *ngIf="title || subtitle" class="divider"></div>
+  
+    <!-- Card Body with Content Projection -->
+    <div class="card-body">
+      <ng-content></ng-content>
+    </div>
+  
+    <!-- Divider Before Footer -->
+    <div *ngIf="title || subtitle" class="divider"></div>
+  
+    <!-- Card Footer with Content Projection -->
+    <div class="card-footer">
+      <ng-content select="[card-footer]"></ng-content>
+    </div>
+  </div>
+  
