@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./badge.component.scss']
 })
 export class BadgeComponent {
-  @Input() text: string = '';
+  @Input() label: string = '';
   @Input() type: 'primary' | 'success' | 'danger' | 'warning' = 'primary';
   @Input() prefixIcon?: string;
   @Input() suffixIcon?: string;

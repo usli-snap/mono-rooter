@@ -185,30 +185,34 @@
       <div class="d-flex flex-wrap gap-2 mt-5">
 
 
-<ui-button
-  [params]="{
-    label: 'Button',
-    variant: 'primary',
-    size: 'md',
-  }"
-  (click)="buttonFunction()">
-</ui-button>
-
-<!-- object style -->
-<ui-button
-  [params]="{
-    label: 'Trash',
-    variant: 'error',
-    size: 'lg',
-    icon: 'bi bi-trash',
-    iconPosition: 'start',
-    loading: isSubmitting,
-    loadingText: 'Deleting...'
-  }"
-  (click)="buttonFunction()">
-</ui-button>
 
 
+<ui-card title="Card Title" subtitle="Card Subtitle">
+  <ui-button
+    [params]="{
+      label: 'Button',
+      variant: 'primary',
+      size: 'md',
+    }"
+    (click)="buttonFunction()" />
+
+  <!-- object style -->
+  <ui-button
+    [params]="{
+      label: 'Trash',
+      variant: 'error',
+      size: 'lg',
+      icon: 'bi bi-trash',
+      iconPosition: 'start',
+      loading: isSubmitting,
+      loadingText: 'Deleting...'
+    }"
+    (click)="buttonFunction()" />
+
+  <ui-dropdown label="My Dropdown" [showIcons]="true" [items]="dataService.dropdownItems" />
+
+  <ui-badge type="primary" label="Error" />
+</ui-card>
 
 
       </div>

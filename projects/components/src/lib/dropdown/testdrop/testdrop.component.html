@@ -1,0 +1,33 @@
+<div class="dropdown" [class.open]="isOpen">
+  <!-- Dropdown Button -->
+  <button class="dropdown-button" (click)="toggleDropdown()">
+    <i *ngIf="icon" class="{{ icon }}"></i> {{ label }}
+    <span class="arrow" [class.rotate]="isOpen">▼</span>
+  </button>
+
+  <!-- Dropdown Menu -->
+  <ul *ngIf="isOpen" class="dropdown-menu">
+    <ng-container *ngFor="let item of menuItems">
+      <!-- Single Dropdown Item -->
+      <li *ngIf="!item.submenu" (click)="onItemClick(item, $event)">
+        <a class="dropdown-item" [href]="item.href || '#'">
+          <i *ngIf="item.icon" class="{{ item.icon }}"></i> {{ item.label }}
+        </a>
+      </li>
+
+      <!-- Dropdown Item with Submenu -->
+      <li *ngIf="item.submenu" class="dropdown-submenu">
+        <a class="dropdown-item" (click)="onItemClick(item, $event)">
+          <i *ngIf="item.icon" class="{{ item.icon }}"></i> {{ item.label }}
+        </a>
+        <ul class="submenu">
+          <li *ngFor="let subItem of item.submenu" (click)="onItemClick(subItem, $event)">
+            <a class="dropdown-item" [href]="subItem.href || '#'">
+              <i *ngIf="subItem.icon" class="{{ subItem.icon }}"></i> {{ subItem.label }}
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ng-container>
+  </ul>
+</div>
