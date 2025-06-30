@@ -117,6 +117,9 @@ export class ExampleComponent {
 <ui-button variant="secondary">Secondary</ui-button>
 <ui-button variant="danger">Danger</ui-button>
 <ui-button variant="outline">Outline</ui-button>
+<ui-button variant="warning">warning</ui-button>
+<ui-button variant="success">success</ui-button>
+<ui-button variant="text">text</ui-button>
 
 <ui-button size="small">Small</ui-button>
 <ui-button size="medium">Medium</ui-button>

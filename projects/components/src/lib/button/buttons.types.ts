@@ -1,5 +1,5 @@
 export interface ButtonParams {
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'error' | 'warning' | 'text';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'error' | 'warning' | 'success' | 'text';
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   type?: 'button' | 'submit' | 'reset';
   label?: string;

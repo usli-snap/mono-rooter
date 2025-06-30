@@ -1,17 +1,19 @@
 // Theme Variables
 // CSS Custom Properties for dynamic theming
+@use 'sass:map';
+@use 'sass:color';
 
 :root {
   // Primary Colors
-  --primary-color: #007bff;
-  --primary-hover: #0056b3;
+  --primary-color: #00338E;
+  --primary-hover: color.scale(#00338E, $lightness: -10%);
   --primary-light: #e3f2fd;
   
   // Secondary Colors
   --secondary-color: #6c757d;
   --secondary-hover: #545b62;
   --secondary-light: #f8f9fa;
-  
+
   // Background Colors
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
@@ -29,9 +31,9 @@
   --border-dark: #adb5bd;
   
   // Status Colors
-  --success-color: #28a745;
+  --success-color: #14661A;
   --warning-color: #ffc107;
-  --danger-color: #dc3545;
+  --danger-color: #B10505;
   --info-color: #17a2b8;
   
   // Shadow
