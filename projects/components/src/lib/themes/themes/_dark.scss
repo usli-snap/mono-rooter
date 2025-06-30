@@ -1,0 +1,39 @@
+// Dark Theme
+[data-theme="dark"] {
+  // Primary Colors
+  --primary-color: #0d6efd;
+  --primary-hover: #0b5ed7;
+  --primary-light: #1a1f24;
+  
+  // Secondary Colors
+  --secondary-color: #6c757d;
+  --secondary-hover: #545b62;
+  --secondary-light: #1a1f24;
+  
+  // Background Colors
+  --bg-primary: #212529;
+  --bg-secondary: #343a40;
+  --bg-tertiary: #495057;
+  
+  // Text Colors
+  --text-primary: #f8f9fa;
+  --text-secondary: #e9ecef;
+  --text-muted: #adb5bd;
+  --text-inverse: #212529;
+  
+  // Border Colors
+  --border-color: #495057;
+  --border-light: #6c757d;
+  --border-dark: #343a40;
+  
+  // Status Colors
+  --success-color: #198754;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --info-color: #0dcaf0;
+  
+  // Shadow Adjustments for Dark Mode
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+  --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.5);
+}

@@ -1,1 +1,70 @@
-@use "../../../components/src/lib/button/button.component.scss";
+// Remove the import since themes are already imported globally in styles.scss
+// @import '../../components/src/lib/themes/themes.scss';
+
+.theme-switcher-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+.theme-demo-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+
+  .demo-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    transition: var(--transition);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    h4 {
+      color: var(--text-primary);
+      margin: 0 0 0.5rem 0;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin: 0;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// Override default styles with theme variables
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+.divider {
+  background: var(--border-color) !important;
+}
+
+// Responsive adjustments
+@media screen and (max-width: 768px) {
+  .theme-switcher-container {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .theme-demo-cards {
+    grid-template-columns: 1fr;
+  }
+}

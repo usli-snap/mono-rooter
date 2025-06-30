@@ -1,0 +1,61 @@
+// Theme Mixins
+
+@mixin theme-transition {
+  transition: var(--transition);
+}
+
+@mixin theme-shadow($level: 'default') {
+  @if $level == 'sm' {
+    box-shadow: var(--shadow-sm);
+  } @else if $level == 'lg' {
+    box-shadow: var(--shadow-lg);
+  } @else {
+    box-shadow: var(--shadow);
+  }
+}
+
+@mixin theme-border-radius($size: 'default') {
+  @if $size == 'sm' {
+    border-radius: var(--border-radius-sm);
+  } @else if $size == 'lg' {
+    border-radius: var(--border-radius-lg);
+  } @else {
+    border-radius: var(--border-radius);
+  }
+}
+
+@mixin theme-button-variant($bg-color, $border-color, $text-color) {
+  background-color: $bg-color;
+  border-color: $border-color;
+  color: $text-color;
+  
+  &:hover {
+    background-color: darken($bg-color, 10%);
+    border-color: darken($border-color, 10%);
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($bg-color, 0.25);
+  }
+}
+
+@mixin theme-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  @include theme-border-radius();
+  @include theme-shadow('sm');
+  @include theme-transition();
+}
+
+@mixin theme-text($variant: 'primary') {
+  @if $variant == 'secondary' {
+    color: var(--text-secondary);
+  } @else if $variant == 'muted' {
+    color: var(--text-muted);
+  } @else if $variant == 'inverse' {
+    color: var(--text-inverse);
+  } @else {
+    color: var(--text-primary);
+  }
+}

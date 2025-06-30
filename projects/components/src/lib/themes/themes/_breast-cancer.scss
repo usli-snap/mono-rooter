@@ -1,0 +1,55 @@
+// Breast Cancer Awareness Theme
+[data-theme="breast-cancer"] {
+  // Primary Colors - Pink
+  --primary-color: #e91e63;
+  --primary-hover: #c2185b;
+  --primary-light: #fce4ec;
+  
+  // Secondary Colors - Soft Pink
+  --secondary-color: #f48fb1;
+  --secondary-hover: #f06292;
+  --secondary-light: #fce4ec;
+  
+  // Background Colors
+  --bg-primary: #ffffff;
+  --bg-secondary: #fce4ec;
+  --bg-tertiary: #f8bbd9;
+  
+  // Text Colors
+  --text-primary: #880e4f;
+  --text-secondary: #ad1457;
+  --text-muted: #c2185b;
+  --text-inverse: #ffffff;
+  
+  // Border Colors
+  --border-color: #f48fb1;
+  --border-light: #f8bbd9;
+  --border-dark: #e91e63;
+  
+  // Status Colors - Pink themed
+  --success-color: #e91e63;
+  --warning-color: #ff9800;
+  --danger-color: #f44336;
+  --info-color: #e91e63;
+  
+  // Shadow Adjustments for Breast Cancer Awareness
+  --shadow-sm: 0 0.125rem 0.25rem rgba(233, 30, 99, 0.15);
+  --shadow: 0 0.5rem 1rem rgba(233, 30, 99, 0.2);
+  --shadow-lg: 0 1rem 3rem rgba(233, 30, 99, 0.25);
+}
+
+// Special pink ribbon effect
+[data-theme="breast-cancer"] body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(233, 30, 99, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(244, 143, 177, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(252, 228, 236, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}

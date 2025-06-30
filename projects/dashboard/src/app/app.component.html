@@ -180,12 +180,13 @@
 <main class="main">
   <div class="content">
     <div class="left-side">
+      <!-- Theme Switcher in top-right corner -->
+      <div class="theme-switcher-container">
+        <lib-theme-switcher></lib-theme-switcher>
+      </div>
 
       <h1>Hello, {{ title }}</h1>
       <div class="d-flex flex-wrap gap-2 mt-5">
-
-
-
 
 <ui-card title="Card Title" subtitle="Card Subtitle">
   <ui-button
@@ -214,16 +215,31 @@
   <ui-badge type="primary" label="Error" />
 </ui-card>
 
-
       </div>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
       <div class="pill-group">
-        right side
+        <h3>Theme Demo</h3>
+        <p>Switch themes using the dropdown above to see the different color schemes in action!</p>
+        
+        <div class="theme-demo-cards">
+          <div class="demo-card">
+            <h4>Light Theme</h4>
+            <p>Clean and bright interface</p>
+          </div>
+          <div class="demo-card">
+            <h4>Dark Theme</h4>
+            <p>Easy on the eyes</p>
+          </div>
+          <div class="demo-card">
+            <h4>Seasonal Themes</h4>
+            <p>Halloween, 4th of July, Breast Cancer Awareness</p>
+          </div>
+        </div>
       </div>
       <div class="social-links">
-        empty
+        <p>Theming system active!</p>
       </div>
     </div>
   </div>

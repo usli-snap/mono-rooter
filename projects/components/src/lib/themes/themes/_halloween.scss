@@ -1,0 +1,39 @@
+// Halloween Theme
+[data-theme="halloween"] {
+  // Primary Colors - Orange
+  --primary-color: #ff6600;
+  --primary-hover: #e55a00;
+  --primary-light: #fff3e6;
+  
+  // Secondary Colors - Dark Purple/Black
+  --secondary-color: #4a1a4a;
+  --secondary-hover: #3d143d;
+  --secondary-light: #1a0a1a;
+  
+  // Background Colors
+  --bg-primary: #1a0a1a;
+  --bg-secondary: #2d1b2d;
+  --bg-tertiary: #4a1a4a;
+  
+  // Text Colors
+  --text-primary: #ff9933;
+  --text-secondary: #ffcc99;
+  --text-muted: #cc6600;
+  --text-inverse: #1a0a1a;
+  
+  // Border Colors
+  --border-color: #ff6600;
+  --border-light: #ff9933;
+  --border-dark: #cc4400;
+  
+  // Status Colors - Halloween themed
+  --success-color: #ff6600;
+  --warning-color: #ffaa00;
+  --danger-color: #cc0000;
+  --info-color: #9966cc;
+  
+  // Shadow Adjustments for Halloween
+  --shadow-sm: 0 0.125rem 0.25rem rgba(255, 102, 0, 0.2);
+  --shadow: 0 0.5rem 1rem rgba(255, 102, 0, 0.3);
+  --shadow-lg: 0 1rem 3rem rgba(255, 102, 0, 0.4);
+}

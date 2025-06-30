@@ -1,0 +1,57 @@
+// 4th of July Theme
+[data-theme="july4th"] {
+  // Primary Colors - Red
+  --primary-color: #dc143c;
+  --primary-hover: #b91c3c;
+  --primary-light: #fef2f2;
+  
+  // Secondary Colors - Blue
+  --secondary-color: #1e40af;
+  --secondary-hover: #1d4ed8;
+  --secondary-light: #eff6ff;
+  
+  // Background Colors
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #e2e8f0;
+  
+  // Text Colors
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+  
+  // Border Colors
+  --border-color: #dc143c;
+  --border-light: #f87171;
+  --border-dark: #b91c3c;
+  
+  // Status Colors - Patriotic themed
+  --success-color: #1e40af;
+  --warning-color: #dc143c;
+  --danger-color: #dc143c;
+  --info-color: #1e40af;
+  
+  // Shadow Adjustments for July 4th
+  --shadow-sm: 0 0.125rem 0.25rem rgba(220, 20, 60, 0.15);
+  --shadow: 0 0.5rem 1rem rgba(220, 20, 60, 0.2);
+  --shadow-lg: 0 1rem 3rem rgba(220, 20, 60, 0.25);
+}
+
+// Special patriotic gradient background
+[data-theme="july4th"] body {
+  background: linear-gradient(135deg, 
+    #dc143c 0%, 
+    #ffffff 25%, 
+    #1e40af 50%, 
+    #ffffff 75%, 
+    #dc143c 100%);
+  background-size: 400% 400%;
+  animation: patrioticGradient 10s ease infinite;
+}
+
+@keyframes patrioticGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

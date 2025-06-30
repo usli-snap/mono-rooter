@@ -1,0 +1,125 @@
+// Main theme file - imports all theme definitions
+@import 'variables';
+@import 'mixins';
+@import 'themes/light';
+@import 'themes/dark';
+@import 'themes/halloween';
+@import 'themes/july4th';
+@import 'themes/breast-cancer';
+
+// Base theme styles
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  @include theme-transition();
+}
+
+// Global component theming
+.btn {
+  @include theme-transition();
+  @include theme-border-radius();
+  
+  &.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--text-inverse);
+    
+    &:hover {
+      background-color: var(--primary-hover);
+      border-color: var(--primary-hover);
+    }
+  }
+  
+  &.btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--text-inverse);
+    
+    &:hover {
+      background-color: var(--secondary-hover);
+      border-color: var(--secondary-hover);
+    }
+  }
+  
+  &.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    
+    &:hover {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      color: var(--text-inverse);
+    }
+  }
+}
+
+.card {
+  @include theme-card();
+}
+
+.dropdown-menu {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+  @include theme-shadow();
+  
+  .dropdown-item {
+    color: var(--text-primary);
+    @include theme-transition();
+    
+    &:hover {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+    
+    &:focus {
+      background-color: var(--primary-color);
+      color: var(--text-inverse);
+    }
+  }
+}
+
+.badge {
+  @include theme-border-radius('sm');
+  
+  &.badge-primary {
+    background-color: var(--primary-color);
+    color: var(--text-inverse);
+  }
+  
+  &.badge-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-inverse);
+  }
+}
+
+// Form controls
+.form-control {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+  @include theme-transition();
+  
+  &:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color), 0.25);
+  }
+}
+
+// Navigation
+.navbar {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  @include theme-transition();
+  
+  &:hover {
+    color: var(--primary-color);
+  }
+  
+  &.active {
+    color: var(--primary-color);
+  }
+}

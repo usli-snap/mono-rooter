@@ -1,30 +1,49 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { BadgeComponent, CardComponent, DropdownComponent, UIButtonComponent } from 'components';
 import { DataService } from '../../../components/src/lib/services/data.service';
+import { ThemeService } from '../../../components/src/lib/services/theme.service';
+import { ThemeSwitcherComponent } from '../../../components/src/lib/theme-switcher/theme-switcher.component';
+import { ThemeName } from '../../../components/src/lib/themes/theme.types';
 import { DropdownItem } from '../../../components/src/lib/dropdown/testdrop/testdrop.component';
+
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, UIButtonComponent, CommonModule, CardComponent, BadgeComponent, DropdownComponent],
+  imports: [
+    RouterOutlet, 
+    UIButtonComponent, 
+    CommonModule, 
+    CardComponent, 
+    BadgeComponent, 
+    DropdownComponent,
+    ThemeSwitcherComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'dashboard';
   isSubmitting: boolean = false;
+
+  dataService = inject(DataService);
+  themeService = inject(ThemeService);
+
+  ngOnInit() {
+    // Initialize theme system
+    this.themeService.currentTheme$.subscribe((theme: ThemeName) => {
+      console.log('Current theme:', theme);
+    });
+  }
 
   onClick(event: Event): void {
     console.log('Button clicked:', event);
   }
+
   buttonFunction() {
     console.log('Button function called');
   }
 
-
-  dataService = inject(DataService);
-
-  // Add this method to handle logging
   handleCustomAction() {
     console.log('Custom action');
   }

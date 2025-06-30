@@ -1,0 +1,23 @@
+:host {
+  display: inline-block;
+}
+
+.theme-switcher-dropdown {
+  min-width: 200px;
+  
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    i {
+      width: 1rem;
+      text-align: center;
+    }
+    
+    &.active {
+      background-color: var(--primary-color);
+      color: var(--text-inverse);
+    }
+  }
+}
