@@ -31,6 +31,49 @@ export interface ComponentExample {
 export class DocumentationService {
   private components: ComponentDoc[] = [
     {
+      id: 'modal',
+      name: 'Modal',
+      description: 'A customizable modal dialog component for displaying content in an overlay.',
+      category: 'Overlay',
+      examples: [
+        {
+          title: 'Basic Modal',
+          description: 'Simple modal with header, body, and footer',
+          code: {
+            html: `<ui-button (click)="openModal()">Open Modal</ui-button>
+<ui-modal [isOpen]="isModalOpen" (close)="closeModal()">
+  <div class="modal-header">
+    <h3>Modal Title</h3>
+  </div>
+  <div class="modal-body">
+    <p>Modal content goes here...</p>
+  </div>
+  <div class="modal-footer">
+    <ui-button variant="secondary" (click)="closeModal()">Close</ui-button>
+    <ui-button variant="primary" (click)="save()">Save</ui-button>
+  </div>
+</ui-modal>`,
+            typescript: `export class ExampleComponent {
+  isModalOpen = false;
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+  save() {
+    console.log('Saving...');
+    this.closeModal();
+  }
+}`
+          }
+        }
+      ]
+    },
+    {
       id: 'button',
       name: 'Button',
       description: 'A customizable button component with various styles and states.',

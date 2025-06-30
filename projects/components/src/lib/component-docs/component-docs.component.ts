@@ -137,6 +137,7 @@ import { ThemeSwitcherComponent } from '../theme-switcher/theme-switcher.compone
   styleUrls: ['./component-docs.component.scss']
 })
 export class ComponentDocsComponent {
+
   @Input() component: ComponentDoc | null = null;
   
   activeTab = 'html';

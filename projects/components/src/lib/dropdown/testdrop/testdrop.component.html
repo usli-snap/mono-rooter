@@ -1,33 +1,53 @@
 <div class="dropdown" [class.open]="isOpen">
   <!-- Dropdown Button -->
   <button class="dropdown-button" (click)="toggleDropdown()">
-    <i *ngIf="icon" class="{{ icon }}"></i> {{ label }}
+    @if (icon) {
+      <i class="{{ icon }}"></i>
+    }
+    {{ label }}
     <span class="arrow" [class.rotate]="isOpen">▼</span>
   </button>
 
   <!-- Dropdown Menu -->
-  <ul *ngIf="isOpen" class="dropdown-menu">
-    <ng-container *ngFor="let item of menuItems">
-      <!-- Single Dropdown Item -->
-      <li *ngIf="!item.submenu" (click)="onItemClick(item, $event)">
-        <a class="dropdown-item" [href]="item.href || '#'">
-          <i *ngIf="item.icon" class="{{ item.icon }}"></i> {{ item.label }}
-        </a>
-      </li>
-
-      <!-- Dropdown Item with Submenu -->
-      <li *ngIf="item.submenu" class="dropdown-submenu">
-        <a class="dropdown-item" (click)="onItemClick(item, $event)">
-          <i *ngIf="item.icon" class="{{ item.icon }}"></i> {{ item.label }}
-        </a>
-        <ul class="submenu">
-          <li *ngFor="let subItem of item.submenu" (click)="onItemClick(subItem, $event)">
-            <a class="dropdown-item" [href]="subItem.href || '#'">
-              <i *ngIf="subItem.icon" class="{{ subItem.icon }}"></i> {{ subItem.label }}
+  @if (isOpen) {
+    <ul class="dropdown-menu">
+      @for (item of menuItems; track item) {
+        <!-- Single Dropdown Item -->
+        @if (!item.submenu) {
+          <li (click)="onItemClick(item, $event)">
+            <a class="dropdown-item" [href]="item.href || '#'">
+              @if (item.icon) {
+                <i class="{{ item.icon }}"></i>
+              }
+              {{ item.label }}
             </a>
           </li>
-        </ul>
-      </li>
-    </ng-container>
-  </ul>
+        }
+
+        <!-- Dropdown Item with Submenu -->
+        @if (item.submenu) {
+          <li class="dropdown-submenu">
+            <a class="dropdown-item" (click)="onItemClick(item, $event)">
+              @if (item.icon) {
+                <i class="{{ item.icon }}"></i>
+              }
+              {{ item.label }}
+            </a>
+            <ul class="submenu">
+              @for (subItem of item.submenu; track subItem) {
+                <li (click)="onItemClick(subItem, $event)">
+                  <a class="dropdown-item" [href]="subItem.href || '#'">
+                    @if (subItem.icon) {
+                      <i class="{{ subItem.icon }}"></i>
+                    }
+                    {{ subItem.label }}
+                  </a>
+                </li>
+              }
+            </ul>
+          </li>
+        }
+      }
+    </ul>
+  }
 </div>

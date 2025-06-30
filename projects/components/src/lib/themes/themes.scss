@@ -1,23 +1,23 @@
 // Main theme file - imports all theme definitions
-@import 'variables';
-@import 'mixins';
-@import 'themes/light';
-@import 'themes/dark';
-@import 'themes/halloween';
-@import 'themes/july4th';
-@import 'themes/breast-cancer';
+@use 'variables';
+@use 'mixins' as mix;
+@use 'themes/light';
+@use 'themes/dark';
+@use 'themes/halloween';
+@use 'themes/july4th';
+@use 'themes/breast-cancer';
 
 // Base theme styles
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  @include theme-transition();
+  @include mix.theme-transition();
 }
 
 // Global component theming
 .btn {
-  @include theme-transition();
-  @include theme-border-radius();
+  @include mix.theme-transition();
+  @include mix.theme-border-radius();
   
   &.btn-primary {
     background-color: var(--primary-color);
@@ -54,17 +54,17 @@ body {
 }
 
 .card {
-  @include theme-card();
+  @include mix.theme-card();
 }
 
 .dropdown-menu {
   background-color: var(--bg-primary);
   border-color: var(--border-color);
-  @include theme-shadow();
+  @include mix.theme-shadow();
   
   .dropdown-item {
     color: var(--text-primary);
-    @include theme-transition();
+    @include mix.theme-transition();
     
     &:hover {
       background-color: var(--bg-secondary);
@@ -79,7 +79,7 @@ body {
 }
 
 .badge {
-  @include theme-border-radius('sm');
+  @include mix.theme-border-radius('sm');
   
   &.badge-primary {
     background-color: var(--primary-color);
@@ -97,7 +97,7 @@ body {
   background-color: var(--bg-primary);
   border-color: var(--border-color);
   color: var(--text-primary);
-  @include theme-transition();
+  @include mix.theme-transition();
   
   &:focus {
     border-color: var(--primary-color);
@@ -113,7 +113,7 @@ body {
 
 .nav-link {
   color: var(--text-secondary);
-  @include theme-transition();
+  @include mix.theme-transition();
   
   &:hover {
     color: var(--primary-color);

@@ -1,1 +1,11 @@
-<p>header works!</p>
+<header class="header">
+    <div class="header-start">
+        <button class="menu-btn" (click)="toggleSidenav()"><i class="bi bi-list"></i></button>
+    </div>
+    <div class="header-center">
+        <input type="text" class="search-input" placeholder="Search...">
+    </div>
+    <div class="theme-switcher-container">
+        <lib-theme-switcher></lib-theme-switcher>
+    </div>
+</header>

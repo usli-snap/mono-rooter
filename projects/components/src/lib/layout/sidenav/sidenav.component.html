@@ -1,0 +1,30 @@
+  <nav class="sidenav" [class.collapsed]="collapsed">
+    <div class="sidenav-header">
+      <h2 class="sidenav-title">Components</h2>
+      <button 
+        class="toggle-btn"
+        (click)="toggleCollapsed()"
+        [attr.aria-label]="collapsed ? 'Expand sidebar' : 'Collapse sidebar'">
+        <i class="bi" [class.bi-chevron-left]="!collapsed" [class.bi-chevron-right]="collapsed"></i>
+      </button>
+    </div>
+    
+    <div class="sidenav-content">
+      <div *ngFor="let category of categories" class="category-section">
+        <h3 class="category-title">{{ category }}</h3>
+        <ul class="component-list">
+          <li *ngFor="let component of getComponentsByCategory(category)" 
+              class="component-item"
+              [class.active]="component.id === selectedComponentId">
+            <button 
+              class="component-link"
+              (click)="selectComponent(component)"
+              [attr.aria-current]="component.id === selectedComponentId ? 'page' : null">
+              <i class="component-icon bi" [class]="getComponentIcon(component.id)"></i>
+              <span class="component-name">{{ component.name }}</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

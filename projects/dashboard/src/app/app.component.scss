@@ -1,5 +1,5 @@
 // Remove the import since themes are already imported globally in styles.scss
-// @import '../../components/src/lib/themes/themes.scss';
+// @use '../../components/src/lib/themes/themes.scss';
 
 .theme-switcher-container {
   position: absolute;

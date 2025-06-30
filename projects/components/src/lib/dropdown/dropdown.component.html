@@ -1,55 +1,40 @@
-<h2>Dropdown</h2>
+<!-- <h2>Dropdown</h2> -->
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     {{ label }}
   </button>
   <ul class="dropdown-menu">
-    <li *ngFor="let item of items">
-      <a class="dropdown-item" href="#" (click)="item.action()">
-        <i *ngIf="showIcons && item.icon" [class]="item.icon"></i> {{ item.text }}
-      </a>
-    </li>
-    <li *ngIf="showTabs">
-      <div class="dropdown-tab">
-        <ul class="nav nav-tabs">
-          <li class="nav-item" *ngFor="let tab of tabs; let i = index">
-            <a class="nav-link" [class.active]="i === activeTab" (click)="activeTab = i">{{ tab.title }}</a>
-          </li>
-        </ul>
-        <div class="tab-content">
-          <div *ngFor="let tab of tabs; let i = index" class="tab-pane" [class.active]="i === activeTab">
-            <!-- Use content projection if no content is provided via @Input -->
-            <ng-content></ng-content>
-            {{ tab.content }}
+    @for (item of items; track item) {
+      <li>
+        <a class="dropdown-item" href="#" (click)="item.action()">
+          @if (showIcons && item.icon) {
+            <i [class]="item.icon"></i>
+          }
+          {{ item.text }}
+        </a>
+      </li>
+    }
+    @if (showTabs) {
+      <li>
+        <div class="dropdown-tab">
+          <ul class="nav nav-tabs">
+            @for (tab of tabs; track tab; let i = $index) {
+              <li class="nav-item">
+                <a class="nav-link" [class.active]="i === activeTab" (click)="activeTab = i">{{ tab.title }}</a>
+              </li>
+            }
+          </ul>
+          <div class="tab-content">
+            @for (tab of tabs; track tab; let i = $index) {
+              <div class="tab-pane" [class.active]="i === activeTab">
+                <!-- Use content projection if no content is provided via @Input -->
+                <ng-content></ng-content>
+                {{ tab.content }}
+              </div>
+            }
           </div>
         </div>
-      </div>
-    </li>
+      </li>
+    }
   </ul>
 </div>
-
-<h2>Navigation with dropdown</h2>
-<nav class="nav justify-content-center" aria-label="Secondary navigation">
-  <li class="nav-item"><a class="nav-link" href="#">Single Item</a></li>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Multi-level Item</a>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#"> Menu Item 1</a></li>
-      <li><a class="dropdown-item" href="#"> Menu Item 2</a></li>
-      <li class="dropdown-submenu">
-        <a class="dropdown-item" href="#"> Second Level <span class="float-end custom-toggle-arrow">&#187;</span></a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Second Level Item 1</a></li>
-          <li><a class="dropdown-item" href="#">Second Level Item 2</a></li>
-          <li class="dropdown-submenu">
-            <a class="dropdown-item" href="#"> Third Level <span class="float-end custom-toggle-arrow">&#187;</span></a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Third Level Item 1</a></li>
-              <li><a class="dropdown-item" href="#">Third Level Item 2</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</nav>
