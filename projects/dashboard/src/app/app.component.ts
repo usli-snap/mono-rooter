@@ -1,64 +1,97 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { BadgeComponent, CardComponent, DropdownComponent, UIButtonComponent } from 'components';
-import { DataService } from '../../../components/src/lib/services/data.service';
-import { ThemeService } from '../../../components/src/lib/services/theme.service';
+import { Component, inject } from '@angular/core';
 import { ThemeSwitcherComponent } from '../../../components/src/lib/theme-switcher/theme-switcher.component';
-import { ThemeName } from '../../../components/src/lib/themes/theme.types';
-import { DropdownItem } from '../../../components/src/lib/dropdown/testdrop/testdrop.component';
+import { SidenavComponent } from '../../../components/src/lib/sidenav/sidenav.component';
+import { ComponentDocsComponent } from '../../../components/src/lib/component-docs/component-docs.component';
+import { DocumentationService, ComponentDoc } from '../../../components/src/lib/services/documentation.service';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [
-    RouterOutlet, 
-    UIButtonComponent, 
     CommonModule, 
-    CardComponent, 
-    BadgeComponent, 
-    DropdownComponent,
-    ThemeSwitcherComponent
+    ThemeSwitcherComponent,
+    SidenavComponent,
+    ComponentDocsComponent
   ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
-})
-export class AppComponent implements OnInit {
-  title = 'dashboard';
-  isSubmitting: boolean = false;
+  template: `
+    <div class="app-container" [class.sidenav-collapsed]="sidenavCollapsed">
+      <!-- Theme Switcher -->
+      <div class="theme-switcher-container">
+        <lib-theme-switcher></lib-theme-switcher>
+      </div>
 
-  dataService = inject(DataService);
-  themeService = inject(ThemeService);
+      <!-- Documentation Layout -->
+      <lib-sidenav
+        [(collapsed)]="sidenavCollapsed"
+        [selectedComponentId]="selectedComponent?.id || null"
+        (componentSelected)="onComponentSelected($event)">
+      </lib-sidenav>
 
-  ngOnInit() {
-    // Initialize theme system
-    this.themeService.currentTheme$.subscribe((theme: ThemeName) => {
-      console.log('Current theme:', theme);
-    });
-  }
+      <main class="main-content">
+        <lib-component-docs [component]="selectedComponent"></lib-component-docs>
+      </main>
+    </div>
+  `,
+  styles: [`
+    .app-container {
+      display: flex;
+      min-height: 100vh;
+      background-color: var(--bg-primary);
+      transition: var(--transition);
 
-  onClick(event: Event): void {
-    console.log('Button clicked:', event);
-  }
-
-  buttonFunction() {
-    console.log('Button function called');
-  }
-
-  handleCustomAction() {
-    console.log('Custom action');
-  }
-
-  menuItems: DropdownItem[] = [
-    { label: 'Home', icon: 'fas fa-home', routerLink: '/' },
-    { label: 'Profile', icon: 'fas fa-user', routerLink: '/profile' },
-    { label: 'Settings', icon: 'fas fa-cog', action: () => alert('Settings Clicked') },
-    {
-      label: 'More',
-      icon: 'fas fa-ellipsis-h',
-      submenu: [
-        { label: 'Documentation', icon: 'fas fa-book', href: 'https://angular.io/docs' },
-        { label: 'Contact Us', icon: 'fas fa-envelope', href: 'mailto:support@example.com' }
-      ]
+      &.sidenav-collapsed {
+        .main-content {
+          margin-left: 60px;
+        }
+      }
     }
-  ];  
+
+    .theme-switcher-container {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1100;
+    }
+
+    .main-content {
+      flex: 1;
+      margin-left: 280px;
+      transition: var(--transition);
+      padding-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .app-container {
+        flex-direction: column;
+
+        &.sidenav-collapsed {
+          .main-content {
+            margin-left: 0;
+            margin-top: 60px;
+          }
+        }
+      }
+
+      .main-content {
+        margin-left: 0;
+        margin-top: 280px;
+        padding-top: 1rem;
+      }
+
+      .theme-switcher-container {
+        top: 0.5rem;
+        right: 0.5rem;
+      }
+    }
+  `]
+})
+export class AppComponent {
+  sidenavCollapsed = false;
+  selectedComponent: ComponentDoc | null = null;
+  docService = inject(DocumentationService);
+
+  onComponentSelected(component: ComponentDoc) {
+    this.selectedComponent = component;
+  }
 }

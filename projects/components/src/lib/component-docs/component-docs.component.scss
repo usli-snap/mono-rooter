@@ -1,0 +1,267 @@
+.component-docs {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.docs-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.component-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.component-category {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.component-description {
+  margin-bottom: 2rem;
+
+  p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.examples-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.example-container {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--bg-primary);
+}
+
+.example-header {
+  padding: 1.5rem;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.example-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.example-description {
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.component-preview {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.preview-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.preview-container {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+
+  &.button-variants {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    .size-examples {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+  }
+}
+
+.badge-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.code-examples {
+  background-color: var(--bg-primary);
+}
+
+.code-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+}
+
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+  }
+
+  &.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    background-color: var(--bg-primary);
+  }
+}
+
+.code-content {
+  background-color: var(--bg-primary);
+}
+
+.no-component {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 2rem;
+}
+
+.no-component-content {
+  text-align: center;
+  max-width: 400px;
+}
+
+.no-component-icon {
+  font-size: 4rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.no-component-content h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.no-component-content p {
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .component-docs {
+    padding: 1rem;
+  }
+
+  .docs-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .component-title {
+    font-size: 2rem;
+  }
+
+  .example-header {
+    padding: 1rem;
+  }
+
+  .component-preview {
+    padding: 1rem;
+  }
+
+  .preview-container {
+    padding: 1rem;
+  }
+
+  .example-demo {
+    &.button-variants {
+      .size-examples {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  }
+
+  .code-tabs {
+    overflow-x: auto;
+  }
+
+  .tab-button {
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+  }
+}
+
+// Theme-specific adjustments
+[data-theme="dark"] .preview-container {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .preview-container {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+// Print styles
+@media print {
+  .component-docs {
+    padding: 0;
+  }
+
+  .code-tabs {
+    display: none;
+  }
+
+  .preview-container {
+    border: 1px solid #ccc;
+  }
+}
