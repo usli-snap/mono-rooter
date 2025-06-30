@@ -6,24 +6,7 @@ import { DocumentationService } from '../services/documentation.service';
   selector: 'lib-code-copy',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <div class="code-copy-container">
-      <div class="code-header">
-        <span class="language-label">{{ language }}</span>
-        <button 
-          class="copy-btn"
-          (click)="copyToClipboard()"
-          [class.copied]="copied">
-          <i class="bi" [class.bi-clipboard]="!copied" [class.bi-check2]="copied"></i>
-          {{ copied ? 'Copied!' : 'Copy' }}
-        </button>
-      </div>
-      <pre class="code-block"><code 
-        [innerHTML]="highlightedCode"
-        [class]="'language-' + language">
-      </code></pre>
-    </div>
-  `,
+  templateUrl: './code-copy.component.html',
   styleUrls: ['./code-copy.component.scss']
 })
 export class CodeCopyComponent {
