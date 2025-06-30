@@ -1,12 +1,15 @@
-<!-- <h2>Dropdown</h2> -->
 <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <button 
+    class="btn btn-secondary dropdown-toggle" 
+    type="button" 
+    [attr.aria-expanded]="isOpen()"
+    (click)="toggleDropdown()">
     {{ label }}
   </button>
-  <ul class="dropdown-menu">
-    @for (item of items; track item) {
+  <ul class="dropdown-menu" [class.show]="isOpen()">
+    @for (item of items; track item.text) {
       <li>
-        <a class="dropdown-item" href="#" (click)="item.action()">
+        <a class="dropdown-item" href="#" (click)="onItemClick(item, $event)">
           @if (showIcons && item.icon) {
             <i [class]="item.icon"></i>
           }
@@ -20,13 +23,13 @@
           <ul class="nav nav-tabs">
             @for (tab of tabs; track tab; let i = $index) {
               <li class="nav-item">
-                <a class="nav-link" [class.active]="i === activeTab" (click)="activeTab = i">{{ tab.title }}</a>
+                <a class="nav-link" [class.active]="i === activeTab()" (click)="activeTab.set(i)">{{ tab.title }}</a>
               </li>
             }
           </ul>
           <div class="tab-content">
             @for (tab of tabs; track tab; let i = $index) {
-              <div class="tab-pane" [class.active]="i === activeTab">
+              <div class="tab-pane" [class.active]="i === activeTab()">
                 <!-- Use content projection if no content is provided via @Input -->
                 <ng-content></ng-content>
                 {{ tab.content }}

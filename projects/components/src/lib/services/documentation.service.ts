@@ -182,9 +182,9 @@ export class ExampleComponent {
 </ui-dropdown>`,
             typescript: `export class ExampleComponent {
   menuItems = [
-    { label: 'Option 1', action: () => console.log('Option 1') },
-    { label: 'Option 2', action: () => console.log('Option 2') },
-    { label: 'Option 3', action: () => console.log('Option 3') }
+    { text: 'Option 1', icon: 'bi-check', action: () => console.log('Option 1 selected') },
+    { text: 'Option 2', icon: 'bi-star', action: () => console.log('Option 2 selected') },
+    { text: 'Option 3', icon: 'bi-gear', action: () => console.log('Option 3 selected') }
   ];
 }`
           }

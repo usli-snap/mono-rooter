@@ -8,40 +8,77 @@
     <p>{{ component.description }}</p>
   </div>
 
+  <!-- Component Attributes Section -->
+  <div class="attributes-section">
+    <h2 class="section-title">Component Attributes</h2>
+    <div class="attributes-table">
+      <div class="table-header">
+        <div class="header-cell">Property</div>
+        <div class="header-cell">Type</div>
+        <div class="header-cell">Description</div>
+        <div class="header-cell">Default</div>
+      </div>
+      <div *ngFor="let attr of getComponentAttributes()" class="table-row">
+        <div class="table-cell property-name">
+          <code>{{ attr.name }}</code>
+          <span *ngIf="attr.required" class="required-indicator">*</span>
+        </div>
+        <div class="table-cell property-type">
+          <code>{{ attr.type }}</code>
+        </div>
+        <div class="table-cell property-description">
+          {{ attr.description }}
+        </div>
+        <div class="table-cell property-default">
+          <code *ngIf="attr.default">{{ attr.default }}</code>
+          <span *ngIf="!attr.default" class="no-default">-</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="examples-section">
+    <h2 class="section-title">Examples</h2>
     <div *ngFor="let example of component.examples; let i = index" class="example-container">
       <div class="example-header">
-        <h2 class="example-title">{{ example.title }}</h2>
+        <h3 class="example-title">{{ example.title }}</h3>
         <p class="example-description">{{ example.description }}</p>
       </div>
 
       <!-- Component Preview -->
       <div class="component-preview">
-        <h3 class="preview-title">Preview</h3>
+        <h4 class="preview-title">Preview</h4>
         <div class="preview-container" [attr.data-component]="component.id">
           @switch (component.id) {
             <!-- Button Examples -->
             @case ('button') {
               <div class="button-examples">
-                <div *ngIf="example.title === 'Basic Button'" class="example-demo">
-                  <ui-button 
-                    [variant]="'primary'" 
-                    [size]="'md'"
-                    (click)="handleExampleClick('Button clicked!')">
-                    Click Me
-                  </ui-button>
-                </div>
-                <div *ngIf="example.title === 'Button Variants'" class="example-demo button-variants">
-                  <ui-button variant="primary">Primary</ui-button>
-                  <ui-button variant="secondary">Secondary</ui-button>
-                  <ui-button variant="warning">Warning</ui-button>
-                  <ui-button variant="text">Text</ui-button>
-                  <div class="size-examples">
-                    <ui-button size="sm">Small</ui-button>
-                    <ui-button size="md">Medium</ui-button>
-                    <ui-button size="lg">Large</ui-button>
+                @if (example.title === 'Basic Button') {
+                  <div class="example-demo">
+                    @let buttonProps = getButtonProps(example);
+                    <ui-button 
+                      [variant]="buttonProps.variant" 
+                      [size]="buttonProps.size"
+                      [disabled]="buttonProps.disabled"
+                      [loading]="buttonProps.loading"
+                      (click)="handleExampleClick('Button clicked!')">
+                      {{ buttonProps.content }}
+                    </ui-button>
                   </div>
-                </div>
+                } @else if (example.title === 'Button Variants') {
+                  <div class="example-demo button-variants">
+                    <ui-button variant="primary">Primary</ui-button>
+                    <ui-button variant="secondary">Secondary</ui-button>
+                    <ui-button variant="error">Error</ui-button>
+                    <ui-button variant="warning">Warning</ui-button>
+                    <ui-button variant="text">Text</ui-button>
+                    <div class="size-examples">
+                      <ui-button size="sm">Small</ui-button>
+                      <ui-button size="md">Medium</ui-button>
+                      <ui-button size="lg">Large</ui-button>
+                    </div>
+                  </div>
+                }
               </div>
             }
 
@@ -62,20 +99,24 @@
             <!-- Badge Examples -->
             @case ('badge') {
               <div class="badge-examples">
-                <ui-badge variant="primary">Primary</ui-badge>
-                <ui-badge variant="secondary">Secondary</ui-badge>
-                <ui-badge variant="success">Success</ui-badge>
-                <ui-badge variant="warning">Warning</ui-badge>
-                <ui-badge variant="danger">Danger</ui-badge>
+                @if (example.title === 'Basic Badge') {
+                  @let badgeProps = getBadgeProps(example);
+                  <ui-badge [type]="badgeProps.type" [label]="badgeProps.label"></ui-badge>
+                  <ui-badge type="primary" label="Primary"></ui-badge>
+                  <ui-badge type="success" label="Success"></ui-badge>
+                  <ui-badge type="warning" label="Warning"></ui-badge>
+                  <ui-badge type="danger" label="Danger"></ui-badge>
+                }
               </div>
             }
 
             <!-- Dropdown Examples -->
             @case ('dropdown') {
               <div class="dropdown-examples">
+                @let dropdownProps = getDropdownProps(example);
                 <ui-dropdown 
-                  [items]="exampleMenuItems" 
-                  [label]="'Select Option'">
+                  [items]="dropdownProps.items" 
+                  [label]="dropdownProps.label">
                 </ui-dropdown>
               </div>
             }
@@ -92,6 +133,7 @@
 
       <!-- Code Examples -->
       <div class="code-examples">
+        <h4 class="code-title">Code</h4>
         <div class="code-tabs">
           <button 
             *ngFor="let tab of getCodeTabs(example)" 
