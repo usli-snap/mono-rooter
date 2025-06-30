@@ -19,64 +19,74 @@
       <div class="component-preview">
         <h3 class="preview-title">Preview</h3>
         <div class="preview-container" [attr.data-component]="component.id">
-          <ng-container [ngSwitch]="component.id">
+          @switch (component.id) {
             <!-- Button Examples -->
-            <div *ngSwitchCase="'button'" class="button-examples">
-              <div *ngIf="example.title === 'Basic Button'" class="example-demo">
-                <ui-button 
-                  [variant]="'primary'" 
-                  [size]="'md'"
-                  (click)="handleExampleClick('Button clicked!')">
-                  Click Me
-                </ui-button>
-              </div>
-              <div *ngIf="example.title === 'Button Variants'" class="example-demo button-variants">
-                <ui-button variant="primary">Primary</ui-button>
-                <ui-button variant="secondary">Secondary</ui-button>
-                <ui-button variant="warning">Warning</ui-button>
-                <ui-button variant="text">Text</ui-button>
-                <div class="size-examples">
-                  <ui-button size="sm">Small</ui-button>
-                  <ui-button size="md">Medium</ui-button>
-                  <ui-button size="lg">Large</ui-button>
+            @case ('button') {
+              <div class="button-examples">
+                <div *ngIf="example.title === 'Basic Button'" class="example-demo">
+                  <ui-button 
+                    [variant]="'primary'" 
+                    [size]="'md'"
+                    (click)="handleExampleClick('Button clicked!')">
+                    Click Me
+                  </ui-button>
+                </div>
+                <div *ngIf="example.title === 'Button Variants'" class="example-demo button-variants">
+                  <ui-button variant="primary">Primary</ui-button>
+                  <ui-button variant="secondary">Secondary</ui-button>
+                  <ui-button variant="warning">Warning</ui-button>
+                  <ui-button variant="text">Text</ui-button>
+                  <div class="size-examples">
+                    <ui-button size="sm">Small</ui-button>
+                    <ui-button size="md">Medium</ui-button>
+                    <ui-button size="lg">Large</ui-button>
+                  </div>
                 </div>
               </div>
-            </div>
+            }
 
             <!-- Card Examples -->
-            <div *ngSwitchCase="'card'" class="card-examples">
-              <ui-card>
-                <div class="card-header">
-                  <h3>Card Title</h3>
-                </div>
-                <div class="card-body">
-                  <p>Card content goes here...</p>
-                </div>
-              </ui-card>
-            </div>
+            @case ('card') {
+              <div class="card-examples">
+                <ui-card>
+                  <div class="card-header">
+                    <h3>Card Title</h3>
+                  </div>
+                  <div class="card-body">
+                    <p>Card content goes here...</p>
+                  </div>
+                </ui-card>
+              </div>
+            }
 
             <!-- Badge Examples -->
-            <div *ngSwitchCase="'badge'" class="badge-examples">
-              <ui-badge variant="primary">Primary</ui-badge>
-              <ui-badge variant="secondary">Secondary</ui-badge>
-              <ui-badge variant="success">Success</ui-badge>
-              <ui-badge variant="warning">Warning</ui-badge>
-              <ui-badge variant="danger">Danger</ui-badge>
-            </div>
+            @case ('badge') {
+              <div class="badge-examples">
+                <ui-badge variant="primary">Primary</ui-badge>
+                <ui-badge variant="secondary">Secondary</ui-badge>
+                <ui-badge variant="success">Success</ui-badge>
+                <ui-badge variant="warning">Warning</ui-badge>
+                <ui-badge variant="danger">Danger</ui-badge>
+              </div>
+            }
 
             <!-- Dropdown Examples -->
-            <div *ngSwitchCase="'dropdown'" class="dropdown-examples">
-              <ui-dropdown 
-                [items]="exampleMenuItems" 
-                [label]="'Select Option'">
-              </ui-dropdown>
-            </div>
+            @case ('dropdown') {
+              <div class="dropdown-examples">
+                <ui-dropdown 
+                  [items]="exampleMenuItems" 
+                  [label]="'Select Option'">
+                </ui-dropdown>
+              </div>
+            }
 
             <!-- Theme Switcher Examples -->
-            <div *ngSwitchCase="'theme-switcher'" class="theme-switcher-examples">
-              <lib-theme-switcher></lib-theme-switcher>
-            </div>
-          </ng-container>
+            @case ('theme-switcher') {
+              <div class="theme-switcher-examples">
+                <lib-theme-switcher></lib-theme-switcher>
+              </div>
+            }
+          }
         </div>
       </div>
 
