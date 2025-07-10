@@ -272,7 +272,7 @@ import { CommonModule } from '@angular/common';
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      color: var(--white);
       font-size: 1.125rem;
       flex-shrink: 0;
     }
@@ -371,7 +371,7 @@ import { CommonModule } from '@angular/common';
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      color: var(--white);
       font-size: 1.125rem;
       flex-shrink: 0;
     }
@@ -402,7 +402,7 @@ import { CommonModule } from '@angular/common';
 
     .contact-button {
       background: var(--primary-color);
-      color: white;
+      color: var(--white);
       border: none;
       padding: 0.5rem 1rem;
       border-radius: 6px;

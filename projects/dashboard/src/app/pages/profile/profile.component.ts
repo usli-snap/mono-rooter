@@ -148,7 +148,7 @@ import { CommonModule } from '@angular/common';
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      color: var(--white);
       font-size: 2rem;
     }
 
@@ -171,7 +171,7 @@ import { CommonModule } from '@angular/common';
 
     .avatar-edit-btn:hover {
       background: var(--primary-color);
-      color: white;
+      color: var(--white);
     }
 
     .profile-info h2 {
@@ -242,7 +242,7 @@ import { CommonModule } from '@angular/common';
 
     .edit-btn {
       background: var(--primary-color);
-      color: white;
+      color: var(--white);
       border: none;
       padding: 0.75rem 1.5rem;
       border-radius: 6px;
@@ -296,7 +296,7 @@ import { CommonModule } from '@angular/common';
 
     .toggle-btn.active {
       background: var(--primary-color);
-      color: white;
+      color: var(--white);
       border-color: var(--primary-color);
     }
 

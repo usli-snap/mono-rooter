@@ -112,10 +112,10 @@
 
   &.active .component-link {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--white);
 
     .component-icon {
-      color: white;
+      color: var(--white);
     }
   }
 }
@@ -228,7 +228,7 @@
 // 4th of July theme
 [data-theme="july4th"] .sidenav {
   .component-item.active .component-link {
-    background-color: #dc3545;
+    background-color: #B10505;
   }
 }
 

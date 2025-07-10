@@ -22,7 +22,7 @@
 
 .component-category {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--white);
   padding: 0.25rem 0.75rem;
   border-radius: 1rem;
   font-size: 0.75rem;
@@ -124,7 +124,7 @@
   color: var(--text-primary);
   
   .required-indicator {
-    color: var(--error-color, #dc3545);
+    color: var(--error-color, #B10505);
     margin-left: 0.25rem;
     font-weight: bold;
   }

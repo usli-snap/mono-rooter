@@ -44,7 +44,7 @@
   &.copied {
     background-color: var(--success-color);
     border-color: var(--success-color);
-    color: white;
+    color: var(--white);
   }
 
   i {
@@ -98,7 +98,7 @@
   .token.char,
   .token.builtin,
   .token.inserted {
-    color: var(--success-color, #28a745);
+    color: var(--success-color, #14661A);
   }
 
   .token.operator,
@@ -112,7 +112,7 @@
   .token.atrule,
   .token.attr-value,
   .token.keyword {
-    color: var(--danger-color, #dc3545);
+    color: var(--danger-color, #B10505);
   }
 
   .token.function,

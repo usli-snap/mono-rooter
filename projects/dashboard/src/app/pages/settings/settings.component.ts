@@ -242,7 +242,7 @@ import { ThemeSwitcherComponent } from '../../../../../components/src/lib/theme-
       left: 2px;
       width: 20px;
       height: 20px;
-      background: white;
+      background: var(--white);
       border-radius: 50%;
       transition: var(--transition);
     }
@@ -310,7 +310,7 @@ import { ThemeSwitcherComponent } from '../../../../../components/src/lib/theme-
 
     .btn-primary {
       background: var(--primary-color);
-      color: white;
+      color: var(--white);
       border: none;
       padding: 0.75rem 1.5rem;
       border-radius: 6px;

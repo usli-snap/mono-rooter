@@ -4,6 +4,9 @@
 @use 'sass:color';
 
 :root {
+  --black: #000000;
+  --white: #ffffff;
+
   // Primary Colors
   --primary-color: #00338E;
   --primary-hover: color.scale(#00338E, $lightness: -10%);
