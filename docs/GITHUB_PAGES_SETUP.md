@@ -66,11 +66,34 @@ npx http-server dist/dashboard -p 8080
 
 ### Common Issues
 
-1. **404 on page refresh**: This is normal for SPAs on GitHub Pages. The app should handle routing internally.
+1. **404 Error on GitHub Pages**
+   - Ensure the `baseHref` and `deployUrl` are correctly set in `angular.json`
+   - Verify the `.nojekyll` file exists in the build output
+   - Check that GitHub Pages is configured to use "GitHub Actions" as the source
+   - **FIXED**: Added `404.html` file for SPA routing support
+   - **FIXED**: Added SPA routing script to handle GitHub Pages redirects
 
-2. **Assets not loading**: Ensure the `baseHref` and `deployUrl` are correctly set to `/mono-rooter/` in the configuration.
+2. **Build Failures**
+   - Make sure all dependencies are installed: `npm ci`
+   - Verify the components library builds first: `npm run build:components`
+   - Check for TypeScript errors in the dashboard project
+   - **FIXED**: Added environment configuration to GitHub Actions workflow
 
-3. **Build failures**: Check the GitHub Actions logs for specific error messages.
+3. **Assets Not Loading**
+   - Confirm the `deployUrl` matches your repository name
+   - Ensure all asset paths are relative, not absolute
+
+4. **Routing Issues**
+   - Angular routing should work with the SPA configuration
+   - The `outputMode: "static"` ensures proper static file generation
+   - **FIXED**: Added SPA routing support for GitHub Pages with 404.html fallback
+
+### Recent Fixes Applied
+
+- ✅ Added missing `.nojekyll` file to `projects/dashboard/public/`
+- ✅ Created `404.html` file for SPA routing support
+- ✅ Added SPA routing script to handle GitHub Pages redirects
+- ✅ Fixed GitHub Actions workflow environment configuration
 
 ### Manual Deployment
 
