@@ -15,7 +15,7 @@ The GitHub Pages deployment showcases the component library through the dashboar
 ### 1. GitHub Actions Workflow (`.github/workflows/deploy.yml`)
 - Automatically builds and deploys on push to main branch
 - Builds both the components library and dashboard
-- Deploys to GitHub Pages using the `gh-pages` branch
+- Deploys to GitHub Pages using GitHub Actions (no separate branch needed)
 
 ### 2. Build Scripts (`package.json`)
 - `build:components` - Builds the component library
