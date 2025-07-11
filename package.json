@@ -5,6 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:components": "ng build components",
+    "build:dashboard": "ng build dashboard",
+    "build:dashboard:gh-pages": "ng build dashboard --configuration github-pages",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:dashboard": "node dist/dashboard/server/server.mjs"
