@@ -39,9 +39,8 @@ git push origin main
 ### 2. Enable GitHub Pages in Repository Settings
 1. Go to your repository on GitHub (`usli-snap/mono-rooter`)
 2. Navigate to **Settings** > **Pages**
-3. Under **Source**, select **Deploy from a branch**
-4. Choose **gh-pages** branch and **/ (root)** folder
-5. Click **Save**
+3. Under **Source**, select **GitHub Actions**
+4. The workflow will automatically deploy when you push to the main branch
 
 ### 3. Verify Deployment
 - The GitHub Action will run automatically on the next push to main
